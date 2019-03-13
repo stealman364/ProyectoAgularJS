@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+  <img ng-src="{{ details.Poster}}" class="movie-poster">
+
+  <span class="span-outer">
+    {{ details.Title }}
+  </span>, {{ details.Year }}
+
+  <p><strong>Released </strong>{{ details.Released }}</p>
+
+  <p>{{ details.Plot }}</p>
+
+  <p class="detailsP">
+    <div class="innerP">
+      <span class="label label-primary">Director : {{ details.Director }}</span> 
+    </div>
+    <div class="innerP">
+      <span class="label label-primary">Actores : {{ details.Actors }}</span> 
+    </div>
+    <div class="innerP">
+      <span class="label label-primary">Genero : {{ details.Genre }}</span> 
+    </div>
+  </p>
+
+  <p class="ratingP">Puntuacion:<br>
+    <strong>IMDb Puntuacion</strong>: <span class="label label-success">{{ details.imdbRating }}</span><br>
+  </p>

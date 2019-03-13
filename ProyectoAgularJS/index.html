@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp" ng-controller="movieCntrl">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cine</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1 align = "center">OMDb</h1>
+    <div align = "center" class="container-fluid mainDiv">
+        <div class="input-group search-bar">
+          <input type="text" ng-model="search" ng-change="searchMovie()" onclick="select()" class="form-control" placeholder="Enter movie name" autofocus />
+        </div>
+    </div>
+    <div class="results">
+    <ul ng-show = "search">
+      <span>Peliculas con titulo'{{search}}'</span>
+      <br>
+      <li ng-repeat="movie in results.Search">
+	  <div class="card" style="width: 24rem;">
+		<img class="card-img-top" ng-src="{{movie.Poster}}" alt="Card image cap">
+			<div class="card-body">
+			<h5 class="card-title">{{ movie.imdbID }}</h5>
+		<p class="card-text">{{ movie.Year }}, {{ movie.imdbID }}, {{ movie.Type }}</p>
+			<a href="#" id="{{ $index + 1 }}" ng-click="showMovie(movie)" class="btn btn-primary">{{ movie.Title }}</a>
+  </div>
+</div>
+       
+	
+      </li>
+	  
+    </ul>
+    </div>
+    <div id="main-info" ng-include="'main.html'" class="col-md-12"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.14/angular.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
